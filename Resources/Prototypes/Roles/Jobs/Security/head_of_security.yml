@@ -1,0 +1,65 @@
+- type: job
+  id: HeadOfSecurity
+  name: job-name-hos
+  description: job-description-hos
+  playTimeTracker: JobHeadOfSecurity
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobWarden
+      time: 54000 #15 hrs # ADT-RoleTime
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 198000 #55 hrs # ADT-RoleTime
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+      - Shadekin
+  # ADT RESTRICT End
+  weight: 10
+  startingGear: HoSGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - HeadOfSecurity
+  - Command
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+      # - type: PhantomTyranyTarget # ADT Phantom
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+      # - type: PhantomTyranyTarget # ADT Phantom
+      # ADT-Tweak-Start: метка персонала службы безопасности
+      - type: SecurityStaff
+      # ADT-Tweak-End
+
+- type: startingGear
+  id: HoSGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    # id: HoSPDA ADT: different PDAs in loadouts
+    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltSecurity
+  storage:
+    back:
+    - Flash
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
+

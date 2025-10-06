@@ -1,0 +1,124 @@
+- type: entity
+  save: false
+  name: Urist McHands The Dwarf
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobDwarf
+  abstract: true
+  components:
+# Start ADT Tweak
+  - type: Damageable
+    damageContainer: Biological
+# End ADT Tweak
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    scale: 1, 0.8
+  - type: Body
+    prototype: Dwarf
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: UnisexDwarf
+      Female: FemaleDwarf
+      Unsexed: UnisexDwarf
+  - type: ReplacementAccent
+    accent: dwarf
+  - type: Speech
+    speechSounds: Bass
+  - type: HumanoidAppearance
+    species: Dwarf
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  # ADT tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      180: Dead
+  - type: InnateMiningScannerViewer
+    pingSound: null
+    viewRange: 4
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Dwarf: Speak
+  - type: Puller  # дварфы мелкие, потому так
+    grabStats:
+      None:
+        requiredHands: 1
+        doaftersToEscape: 0
+        movementSpeedModifier: 0.8
+        escapeAttemptTime: 0
+        setStageTime: 0
+      Soft:
+        requiredHands: 1
+        doaftersToEscape: 1
+        movementSpeedModifier: 0.7
+        escapeAttemptTime: 1.1
+        setStageTime: 0
+      Hard:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.6
+        escapeAttemptTime: 1
+        setStageTime: 0.75
+      Choke:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.55
+        escapeAttemptTime: 1.25
+        setStageTime: 1.25
+  # ADT tweak end
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobDwarfDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 1, 0.8
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

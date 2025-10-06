@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by TheShuEd (github) for ss14; Remake by (discord) axelesgmer for ADT", 
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "pulse",
+      "delays": [
+        [
+          0.25625,
+          0.25625,
+          0.25625,
+          0.25625,
+          0.25625
+        ]
+      ]
+    }
+  ]
+}

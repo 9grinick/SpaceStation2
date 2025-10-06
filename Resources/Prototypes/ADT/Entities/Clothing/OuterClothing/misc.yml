@@ -1,0 +1,34 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronPathologist
+  name: pathologist's apron
+  description: An apron used by pathologists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_pathologist.rsi
+
+#Коробка с подтяжками (для клунь)
+
+- type: entity
+  parent: [ClothingOuterStorageBase]
+  id: ADTClothingOuterClothingBox
+  name: Box vest
+  description: box with cutout for legs
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronBarber
+  name: barber's apron
+  description: Get the hair off the suit!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
